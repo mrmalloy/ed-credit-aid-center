@@ -207,7 +207,7 @@ fluidPage(
 
                              ), # end card 2
 
-                        card(card_header(h4(strong("Option 3 – Variable Expenses"))),
+                        card(card_header(h4(strong("Option 3 – Mid-Max Expenses"))),
                              tags$style(HTML("#opt3_fed.form-control{margin-bottom:-10px}")),
                              tags$style(HTML("#opt3_m1.form-control{margin-bottom:-10px}")),
                              h6(uiOutput("option3")),

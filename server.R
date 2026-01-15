@@ -33,7 +33,7 @@ option1_taxschol <- eventReactive(input$enter, {
   
   if (tot_exp() > input$box5) {
     
-    "N/A"  ## If expenses > scholarship, not applicable
+    0  ## If expenses > scholarship, not applicable
     
   } else {
     
@@ -101,7 +101,29 @@ option2_nontaxschol <- eventReactive(input$enter, {
     
           }
   
-                                                     })
+                                  })
+
+option3_exp <- eventReactive(input$enter, {
+  
+  
+  round((option1_exp() + option2_exp())/2, 0)
+  
+  
+})
+
+option3_taxschol <- eventReactive(input$enter, {
+  
+  round((option1_taxschol() + option2_taxschol())/2, 0)
+
+  
+})
+
+option3_nontaxschol <- eventReactive(input$enter, {
+  
+  input$box5 - option3_taxschol()
+  
+})
+
 
 
 observeEvent(input$enter, {
@@ -226,10 +248,32 @@ observeEvent(input$enter, {
      #            )
      #      )
      #   
-     } else { 
+     } else if(input$studentType == "dependent") {
+     
+       HTML(
+         sprintf("<b><p>Taxpayer's Return</b></p>
+              <p><b>Eligible Expenses:</b> $%s</p>
+              <p><b>Taxable Scholarship:</b> N/A</p>
+              <p><b>Nontaxable Scholarship:</b> $%s</p>
+              <p><b>Dependent's Return</b></p>
+              <p><b>Eligible Expenses:</b> N/A</p>
+              <p><b>Taxable Scholarship:</b> $%s</p>
+              <p><b>Nontaxable Scholarship:</b> N/A</p>",
+                 as.character(option3_exp()),
+                 as.character(option3_nontaxschol()),
+                 as.character(option3_taxschol())
+                 
+         )
+       )
+    }  else { 
        
        HTML(
-         sprintf("Maximizing qualified expenses maybe not be the most advantageous treatment for a taxpayer who receives EIC or ACTC. Test other values in TaxSlayer. Enter an eligible expense amount between the values in Option 1 and Option 2 in TaxSlayer. Decrease taxable scholarship by the difference between your new expenses value and Option 2's, and increase nontaxable scholarship by the same increment."
+         sprintf("<p><b>Eligible Expenses:</b> $%s</p>
+                  <p><b>Taxable Scholarship:</b> $%s</p>
+                  <p><b>Nontaxable Scholarship:</b> $%s</p>",
+                  as.character(option3_exp()),
+                  as.character(option3_taxschol()),
+                  as.character(option3_nontaxschol())
                 )
             )
        
@@ -330,7 +374,6 @@ observeEvent(input$enter, {
        
      } else if (!is.na(opt1_sum()) &
                 !is.na(opt2_sum()) &
-                input$otherCredits== "No" &
                 opt1_sum() > opt2_sum()) {
        
        "Option 1 is most advantageous for the taxpayer. Use these values on the return."
@@ -363,7 +406,6 @@ observeEvent(input$enter, {
          
        } else if (!is.na(opt1_sum()) &
                   !is.na(opt2_sum()) &
-                   input$otherCredits== "No" &
                    opt2_sum() > opt1_sum()) {
          
          "Option 2 is most advantageous for the taxpayer. Use these values on the return."
