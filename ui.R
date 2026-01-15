@@ -43,11 +43,11 @@ fluidPage(
               br(),
               
               h4(strong("Enter Initial Information",
-                        style = "padding-left: 80px")),
+                        style = "padding-left: 120px")),
               
            #   tags$div(id="inline1", class="inline", textInput(inputId = "txtInp", label = HTML("Label Left 1:&nbsp&nbsp"))),
               
-              tags$div(style = "padding-left: 80px",
+              tags$div(style = "padding-left: 120px",
                        id="entry1", 
                        class="inline",
                        numericInput(inputId = "box1",
@@ -59,7 +59,7 @@ fluidPage(
            
               br(),
            
-              tags$div(style = "padding-left: 80px",
+              tags$div(style = "padding-left: 120px",
                        id="entry2", 
                        class="inline",
                        numericInput(inputId = "box5",
@@ -71,7 +71,7 @@ fluidPage(
            
               br(),
               
-              tags$div(style = "padding-left: 80px",
+              tags$div(style = "padding-left: 120px",
                        id="entry3", 
                        class="inline",
                        numericInput("otherExp",
@@ -83,7 +83,7 @@ fluidPage(
            
              br(),
              
-             tags$div(style = "padding-left: 80px",
+             tags$div(style = "padding-left: 120px",
                       id="entry4", 
                       class="inline",
                       radioButtons("studentType",
@@ -94,17 +94,17 @@ fluidPage(
                                   )
                       ),
              
-            tags$div(style = "padding-left: 80px",
-                     id="entry5",
-                     class="inline",
-                     radioButtons("otherCredits",
-                                  label = h5(HTML("Is the taxpayer receiving earned income credit or additional child tax credit?&nbsp&nbsp")),
-                                  choiceNames = list("Yes", "No"),
-                                  choiceValues = list("Yes ", "No"),
-                                  selected = c("No"),
-                                  inline = TRUE
-                                  )
-                     ),
+            # tags$div(style = "padding-left: 120px",
+            #          id="entry5",
+            #          class="inline",
+            #          radioButtons("otherCredits",
+            #                       label = h5(HTML("Is the taxpayer receiving earned income credit or additional child tax credit?&nbsp&nbsp")),
+            #                       choiceNames = list("Yes", "No"),
+            #                       choiceValues = list("Yes ", "No"),
+            #                       selected = c("No"),
+            #                       inline = TRUE
+            #                       )
+            #          ),
                    ),
           column(2),
           ),# end fluidRow
@@ -213,18 +213,18 @@ fluidPage(
                              h6(uiOutput("option3")),
                          #    h6("Enter the above amounts into TaxSlayer, and record refund amounts below:",
                         #        style = "margin-botton:-10px"),
-                             numericInput("opt3_expense",
-                                           label = tags$strong("Eligible Expenses"),
-                                           value = NA,
-                                           min = 0),
-                             numericInput("opt3_tax_schol",
-                                           label = tags$strong("Taxable Scholarship"),
-                                           value = NA,
-                                           min = 0),
-                             numericInput("opt3_tax_schol",
-                                           label = tags$strong("Nontaxable Scholarship"),
-                                           value = NA,
-                                           min = 0),
+                             # numericInput("opt3_expense",
+                             #               label = tags$strong("Eligible Expenses"),
+                             #               value = NA,
+                             #               min = 0),
+                             # numericInput("opt3_tax_schol",
+                             #               label = tags$strong("Taxable Scholarship"),
+                             #               value = NA,
+                             #               min = 0),
+                             # numericInput("opt3_tax_schol",
+                             #               label = tags$strong("Nontaxable Scholarship"),
+                             #               value = NA,
+                             #               min = 0),
                              numericInput("opt3_agi",
                                          label = "Taxpayer - Federal AGI",
                                          value = NA,

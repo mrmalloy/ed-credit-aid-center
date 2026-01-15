@@ -108,17 +108,42 @@ observeEvent(input$enter, {
   
   output$option1 <- renderUI({
     
-    HTML(
-      sprintf("<p><b>Eligible Expenses:</b> $%s</p>
+    if(input$studentType == "dependent") {
+      
+      HTML(
+        sprintf("<b><p>Taxpayer's Return</b></p>
+              <p><b>Eligible Expenses:</b> $%s</p>
+              <p><b>Taxable Scholarship:</b> N/A</p>
+              <p><b>Nontaxable Scholarship:</b> $%s</p>
+              <p><b>Dependent's Return</b></p>
+              <p><b>Eligible Expenses:</b> N/A</p>
+              <p><b>Taxable Scholarship:</b> $%s</p>
+              <p><b>Nontaxable Scholarship:</b> N/A</p>",
+                
+                as.character(option1_exp()),
+                as.character(option1_nontaxschol()),
+                as.character(option1_taxschol())
+                
+                )
+            )
+      
+      
+    } else {
+      
+      HTML(
+        sprintf("<p><b>Eligible Expenses:</b> $%s</p>
               <p><b>Taxable Scholarship:</b> $%s</p>
               <p><b>Nontaxable Scholarship:</b> $%s</p>",
-              as.character(option1_exp()),
-              as.character(option1_taxschol()),
-              as.character(option1_nontaxschol())
-              
+                as.character(option1_exp()),
+                as.character(option1_taxschol()),
+                as.character(option1_nontaxschol())
+                
+        )
       )
-    )
-    
+      
+      
+    }
+ 
   })
     
    output$option2 <- renderUI({
@@ -138,6 +163,25 @@ observeEvent(input$enter, {
            "<span style=\"color:red\">No scholarship to reclassify - use option 1</span>"
                 )
             )
+       
+     } else if(input$studentType == "dependent") {
+       
+       
+       HTML(
+         sprintf("<b><p>Taxpayer's Return</b></p>
+              <p><b>Eligible Expenses:</b> $%s</p>
+              <p><b>Taxable Scholarship:</b> N/A</p>
+              <p><b>Nontaxable Scholarship:</b> $%s</p>
+              <p><b>Dependent's Return</b></p>
+              <p><b>Eligible Expenses:</b> N/A</p>
+              <p><b>Taxable Scholarship:</b> $%s</p>
+              <p><b>Nontaxable Scholarship:</b> N/A</p>",
+                 as.character(option2_exp()),
+                 as.character(option2_nontaxschol()),
+                 as.character(option2_taxschol())
+                 
+         )
+       )
        
      } else {
        
@@ -174,14 +218,14 @@ observeEvent(input$enter, {
                  )
            )
        
-     } else if(input$otherCredits == 'No') {
-       
-       HTML(
-         sprintf(
-           "<span style=\"color:red\">The taxpayer's credits will not be impacted by maximizing expenses. Do not complete Part 3.</span>"
-                )
-          )
-       
+     # } else if(input$otherCredits == 'No') {
+     #   
+     #   HTML(
+     #     sprintf(
+     #       "<span style=\"color:red\">The taxpayer's credits will not be impacted by maximizing expenses. Do not complete Part 3.</span>"
+     #            )
+     #      )
+     #   
      } else { 
        
        HTML(
@@ -245,7 +289,7 @@ observeEvent(input$enter, {
      if (tot_exp() - input$box5 > 4000) {
        
        
-     } else if(input$otherCredits=="No") {
+  #   } else if(input$otherCredits=="No") {
        
        
      } else if(is.na(opt3_sum())) {
@@ -335,11 +379,13 @@ observeEvent(input$enter, {
    
    output$opt3_best <- renderUI({
      
-     if (input$otherCredits=="No") {
+     # if (input$otherCredits=="No") {
+     #   
+     #   
+     #   
+     # }  else 
        
-       
-       
-     }  else if (tot_exp() - input$box5 > 4000) {
+    if (tot_exp() - input$box5 > 4000) {
        
        
        
@@ -378,15 +424,15 @@ opt2_sum <- reactive({
 
 opt3_sum <- reactive({
   
-  if(input$otherCredits == 'No') {
-    
-    NA
-    
-  } else {
+  # if(input$otherCredits == 'No') {
+  #   
+  #   NA
+  #   
+  # } else {
     
     input$opt3_fed + input$opt3_m1 + input$opt3_dep_fed + input$opt3_dep_m1 
     
-  }
+  # }
   
 })
 
