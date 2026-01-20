@@ -43,11 +43,11 @@ fluidPage(
               br(),
               
               h4(strong("Enter Initial Information",
-                        style = "padding-left: 120px")),
+                        style = "padding-left: 22%")),
               
            #   tags$div(id="inline1", class="inline", textInput(inputId = "txtInp", label = HTML("Label Left 1:&nbsp&nbsp"))),
               
-              tags$div(style = "padding-left: 120px",
+              tags$div(style = "padding-left: 22%",
                        id="entry1", 
                        class="inline",
                        numericInput(inputId = "box1",
@@ -59,7 +59,7 @@ fluidPage(
            
               br(),
            
-              tags$div(style = "padding-left: 120px",
+              tags$div(style = "padding-left: 22%",
                        id="entry2", 
                        class="inline",
                        numericInput(inputId = "box5",
@@ -71,7 +71,7 @@ fluidPage(
            
               br(),
               
-              tags$div(style = "padding-left: 120px",
+              tags$div(style = "padding-left: 22%",
                        id="entry3", 
                        class="inline",
                        numericInput("otherExp",
@@ -83,7 +83,7 @@ fluidPage(
            
              br(),
              
-             tags$div(style = "padding-left: 120px",
+             tags$div(style = "padding-left: 22%",
                       id="entry4", 
                       class="inline",
                       radioButtons("studentType",
