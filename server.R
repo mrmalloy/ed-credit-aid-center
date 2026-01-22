@@ -133,15 +133,14 @@ observeEvent(input$enter, {
     if(input$studentType == "dependent") {
       
       HTML(
-        sprintf("<b><p>Taxpayer's Return</b></p>
-              <p><b>Eligible Expenses:</b> $%s</p>
-              <p><b>Taxable Scholarship:</b> N/A</p>
-              <p><b>Nontaxable Scholarship:</b> N/A</p>
-              <p><b>Dependent's Return</b></p>
-              <p><b>Eligible Expenses:</b> N/A</p>
-              <p><b>Taxable Scholarship:</b> $%s</p>
-              <p><b>Nontaxable Scholarship:</b> $%s</p>",
-                
+        sprintf("<h5><b><p>Taxpayer's Return</b></p></h5>
+              <h5><p><b>Eligible Expenses:</b> $%s</p></h5>
+              <h5><p><b>Taxable Scholarship:</b> N/A</p></h5>
+              <h5><p><b>Nontaxable Scholarship:</b> N/A</p></h5>
+              <h5><p><b>Dependent's Return</b></p></h5>
+              <h5><p><b>Eligible Expenses:</b> N/A</p></h5>
+              <h5><p><b>Taxable Scholarship:</b> $%s</p></h5>
+              <h5><p><b>Nontaxable Scholarship:</b> $%s</p></h5>",
                 as.character(option1_exp()),
                 as.character(option1_nontaxschol()),
                 as.character(option1_taxschol())
@@ -153,9 +152,9 @@ observeEvent(input$enter, {
     } else {
       
       HTML(
-        sprintf("<p><b>Eligible Expenses:</b> $%s</p>
-              <p><b>Taxable Scholarship:</b> $%s</p>
-              <p><b>Nontaxable Scholarship:</b> $%s</p>",
+        sprintf("<h5><p><b>Eligible Expenses:</b> $%s</p></h5>
+              <h5><p><b>Taxable Scholarship:</b> $%s</p></h5>
+              <h5><p><b>Nontaxable Scholarship:</b> $%s</p></h5>",
                 as.character(option1_exp()),
                 as.character(option1_taxschol()),
                 as.character(option1_nontaxschol())
@@ -174,7 +173,7 @@ observeEvent(input$enter, {
        
        HTML(
          sprintf(
-           "<span style=\"color:red\">Expenses already maximized - use option 1</span>"
+           "<h5><span style=\"color:red\">Expenses already maximized - use option 1</span></h5>"
                 )
             )
        
@@ -182,7 +181,7 @@ observeEvent(input$enter, {
        
        HTML(
          sprintf(
-           "<span style=\"color:red\">No scholarship to reclassify - use option 1</span>"
+           "<h5><span style=\"color:red\">No scholarship to reclassify - use option 1</span></h5>"
                 )
             )
        
@@ -190,14 +189,14 @@ observeEvent(input$enter, {
        
        
        HTML(
-         sprintf("<b><p>Taxpayer's Return</b></p>
-              <p><b>Eligible Expenses:</b> $%s</p>
-              <p><b>Taxable Scholarship:</b> N/A</p>
-              <p><b>Nontaxable Scholarship:</b> N/A</p>
-              <p><b>Dependent's Return</b></p>
-              <p><b>Eligible Expenses:</b> N/A</p>
-              <p><b>Taxable Scholarship:</b> $%s</p>
-              <p><b>Nontaxable Scholarship:</b> $%s</p>",
+         sprintf("<h5><b><p>Taxpayer's Return</b></p></h5>
+              <h5><p><b>Eligible Expenses:</b> $%s</p></h5>
+              <h5><p><b>Taxable Scholarship:</b> N/A</p></h5>
+              <h5><p><b>Nontaxable Scholarship:</b> N/A</p></h5>
+              <h5><p><b>Dependent's Return</b></p></h5>
+              <h5><p><b>Eligible Expenses:</b> N/A</p></h5>
+              <h5><p><b>Taxable Scholarship:</b> $%s</p></h5>
+              <h5><p><b>Nontaxable Scholarship:</b> $%s</p></h5>",
                  as.character(option2_exp()),
                  as.character(option2_nontaxschol()),
                  as.character(option2_taxschol())
@@ -208,9 +207,9 @@ observeEvent(input$enter, {
      } else {
        
        HTML(
-         sprintf("<p><b>Eligible Expenses:</b> $%s</p>
-                  <p><b>Taxable Scholarship:</b> $%s</p>
-                  <p><b>Nontaxable Scholarship:</b> $%s</p>",
+         sprintf("<h5><p><b>Eligible Expenses:</b> $%s</p></h5>
+                  <h5><p><b>Taxable Scholarship:</b> $%s</p></h5>
+                  <h5><p><b>Nontaxable Scholarship:</b> $%s</p></h5>",
                   as.character(option2_exp()),
                   as.character(option2_taxschol()),
                   as.character(option2_nontaxschol())
@@ -228,7 +227,7 @@ observeEvent(input$enter, {
        
        HTML(
          sprintf(
-           "<span style=\"color:red\">Expenses already maximized - use option 1</span>"
+           "<h5><span style=\"color:red\">Expenses already maximized - use option 1</span></h5>"
                  )
              )
        
@@ -236,7 +235,7 @@ observeEvent(input$enter, {
        
        HTML(
          sprintf(
-           "<span style=\"color:red\">No scholarship to reclassify - use option 1</span>"
+           "<h5><span style=\"color:red\">No scholarship to reclassify - use option 1</span></h5>"
                  )
            )
        
@@ -251,14 +250,14 @@ observeEvent(input$enter, {
      } else if(input$studentType == "dependent") {
      
        HTML(
-              "Option 3 Not Applicable When Student Is Dependent."
+              "<h5>Option 3 Not Applicable When Student Is Dependent.</h5>"
             )
     }  else { 
        
        HTML(
-         sprintf("<p><b>Eligible Expenses:</b> $%s</p>
-                  <p><b>Taxable Scholarship:</b> $%s</p>
-                  <p><b>Nontaxable Scholarship:</b> $%s</p>",
+         sprintf("<h5><p><b>Eligible Expenses:</b> $%s</p></h5>
+                  <h5><p><b>Taxable Scholarship:</b> $%s</p></h5>
+                  <h5><p><b>Nontaxable Scholarship:</b> $%s</p></h5>",
                   as.character(option3_exp()),
                   as.character(option3_taxschol()),
                   as.character(option3_nontaxschol())
@@ -277,13 +276,13 @@ observeEvent(input$enter, {
        
      } else if (opt1_sum() >= 0) {
        
-       HTML(sprintf("If option 1 values are used, the taxpayer will receive a net refund of $%s.",
+       HTML(sprintf("<h5>If option 1 values are used, the taxpayer(s) will receive a net refund of $%s.</h5>",
                     opt1_sum())
        )
        
      } else {
        
-       HTML(sprintf("If option 1 values are used, the taxpayer will owe $%s.",
+       HTML(sprintf("<h5>If option 1 values are used, the taxpayer(s) will owe $%s.</h5>",
                     abs(opt1_sum()))
        )
        
@@ -301,13 +300,13 @@ observeEvent(input$enter, {
        
      } else if (opt2_sum() >= 0) {
        
-       HTML(sprintf("If option 2 values are used, the taxpayer will receive a net refund of $%s.",
+       HTML(sprintf("<h5>If option 2 values are used, the taxpayer(s) will receive a net refund of $%s.</h5>",
                     opt2_sum())
        )
        
      } else {
        
-       HTML(sprintf("If option 2 values are used, the taxpayer will owe $%s.",
+       HTML(sprintf("<h5>If option 2 values are used, the taxpayer(s) will owe $%s.</h5>",
                     abs(opt2_sum()))
        )
        
@@ -329,13 +328,13 @@ observeEvent(input$enter, {
          
      } else if(opt3_sum() >= 0) {
        
-       HTML(sprintf("If option 3 values are used, the taxpayer will receive a net refund of $%s.",
+       HTML(sprintf("<h5>If option 3 values are used, the taxpayer(s) will receive a net refund of $%s.</h5>",
                     opt3_sum())
        )
        
      } else if (opt3_sum() < 0){
        
-       HTML(sprintf("If option 3 values are used, the taxpayer will owe $%s.",
+       HTML(sprintf("<h5>If option 3 values are used, the taxpayer(s) will owe $%s.</h5>",
                     abs(opt3_sum()))
        )
        
@@ -354,11 +353,11 @@ observeEvent(input$enter, {
        
      } else if (!is.na(opt1_sum()) &
                  !is.na(opt2_sum()) &
-                 !is.na(opt3_sum()) &
+                 (!is.na(opt3_sum()) | input$studentType == "dependent") &
                  opt1_sum() > opt2_sum() &
-                 opt1_sum() > opt3_sum()) {
+                 (opt1_sum() > opt3_sum() | input$studentType == "dependent")) {
        
-       "Option 1 is most advantageous for the taxpayer. Use these values on the return."
+       HTML("<h5>Option 1 is most advantageous for the taxpayer(s). Use these values on the return.</h5>")
        
      } 
      #  else if (!is.na(opt1_sum()) &
@@ -388,11 +387,11 @@ observeEvent(input$enter, {
        
      }  else if(!is.na(opt1_sum()) &
                 !is.na(opt2_sum()) &
-                !is.na(opt3_sum()) &
+                (!is.na(opt3_sum() | input$studentType == "dependent")) &
                 opt2_sum() >= opt1_sum() &
-                opt2_sum() >= opt3_sum()) {
+                (opt2_sum() >= opt3_sum() | input$studentType == "dependent")) {
          
-         "Option 2 is most advantageous for the taxpayer. Use these values on the return."
+         HTML("<h5>Option 2 is most advantageous for the taxpayer(s). Use these values on the return.</h5>")
          
        } 
        #    else if (!is.na(opt1_sum()) &
@@ -422,6 +421,8 @@ observeEvent(input$enter, {
     if (tot_exp() - input$box5 > 4000) {
        
        
+     }  else if(input$studentType == "dependent") {
+       
        
      }  else if(!is.na(opt1_sum()) &
                 !is.na(opt2_sum()) &
@@ -429,7 +430,7 @@ observeEvent(input$enter, {
                 opt3_sum() >= opt1_sum() &
                 opt3_sum() >= opt2_sum()) {
        
-       "Option 3 is most advantageous for the taxpayer. Use these values on the return."
+       HTML("<h5>Option 3 is most advantageous for the taxpayer(s). Use these values on the return.</h5>")
        
      } else {
        
